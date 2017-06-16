@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e74c3c</color>
+    <color name="colorPrimaryDark">#d01716</color>
+    <color name="colorAccent">#ffab40</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="bg_red">#e74c3c</color>
+    <color name="oval_otp_bg_clr">#30FFFFFF</color>
+</resources>

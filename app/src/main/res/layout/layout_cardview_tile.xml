@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardview_tile"
+    android:layout_width="match_parent"
+    android:layout_height="195dp"
+    android:layout_gravity="center_vertical"
+    android:layout_marginTop="6dp">
+
+    <ImageView
+        android:id="@+id/cardview_tile_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/image_bg_card" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <com.oolatina.android.eventsapp.Widgets.ETextView
+            android:id="@+id/cardview_tile_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="2dp"
+            android:singleLine="true"
+            android:text="Activity"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <com.oolatina.android.eventsapp.Widgets.ETextView
+            android:id="@+id/cardview_tile_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="sub title"
+            android:layout_margin="2dp"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+</RelativeLayout>
