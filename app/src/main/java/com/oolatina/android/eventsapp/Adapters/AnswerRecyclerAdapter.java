@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.oolatina.android.eventsapp.Activities.EventsExploreActivity;
 import com.oolatina.android.eventsapp.Others.AnimationUtils;
+import com.oolatina.android.eventsapp.Others.Const;
 import com.oolatina.android.eventsapp.R;
 import com.oolatina.android.eventsapp.Widgets.ETextView;
 
@@ -20,6 +21,8 @@ import java.util.List;
 
 public class AnswerRecyclerAdapter extends RecyclerView.Adapter<AnswerRecyclerAdapter.AnswerViewHolder> {
 
+
+
     private Context context;
     private LayoutInflater inflater;
     private ViewGroup viewGroup;
@@ -31,12 +34,12 @@ public class AnswerRecyclerAdapter extends RecyclerView.Adapter<AnswerRecyclerAd
     }
 
     public void setOptionsList(int position) {
-        if (position == 0) {
+        if (position == Const.TAG_ACTIVITY_IDENTITY) {
             // Adding Activity List
             optionsList.clear();
             optionsList.add("Dance");
             optionsList.add("Music");
-        } else if (position == 1) {
+        } else if (position == Const.TAG_STYLE_IDENTITY) {
             // Adding Activity List
             optionsList.clear();
             optionsList.add("Salsa");
@@ -66,27 +69,27 @@ public class AnswerRecyclerAdapter extends RecyclerView.Adapter<AnswerRecyclerAd
             optionsList.add("Pachanga");
             optionsList.add("Paso doble");
             optionsList.add("Rumba");
-        } else if (position == 2) {
+        } else if (position == Const.TAG_LEVEL_IDENTITY) {
             optionsList.clear();
             optionsList.add("Beginner");
             optionsList.add("Beginner/Intermediate");
             optionsList.add("Intermediate");
             optionsList.add("Intermediate/Advanced");
             optionsList.add("Advanced");
-        } else if (position == 3) {
+        } else if (position == Const.TAG_MOMENT_IDENTITY) {
             optionsList.clear();
             optionsList.add("Choose Date");
             optionsList.add("Choose Start Time");
             optionsList.add("Choose End Time");
-        } else if (position == 4) {
+        } else if (position == Const.TAG_PRICE_IDENTITY) {
             optionsList.clear();
             optionsList.add("Amount");
             optionsList.add("Free");
-        } else if (position == 5) {
+        } else if (position == Const.TAG_LOCATION_IDENTITY) {
             optionsList.clear();
             optionsList.add("Address");
             optionsList.add("Room Number");
-        } else if (position == 6) {
+        } else if (position == Const.TAG_TEACHER_IDENTITY) {
             optionsList.clear();
             optionsList.add("Name");
             optionsList.add("Add a teacher");

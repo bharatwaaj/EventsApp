@@ -80,9 +80,12 @@ public class EventsExploreActivity extends AppCompatActivity implements View.OnC
     }
 
     public void incrementPosition() {
-        if(position < 6){
+        if(position < 5){
             position++;
             loadQuestion(position);
+        }else if(position == 5){
+            position++;
+            searchAutocompleteAction();
         }else if(position == 6){
             position++;
             searchAutocompleteAction();
