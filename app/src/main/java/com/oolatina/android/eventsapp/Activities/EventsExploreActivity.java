@@ -33,6 +33,7 @@ public class EventsExploreActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_events_explore);
         initQuestionStrings();
         initUI();
+        position = 0;
     }
 
     private void initQuestionStrings() {
@@ -85,7 +86,7 @@ public class EventsExploreActivity extends AppCompatActivity implements View.OnC
             loadQuestion(position);
         }else if(position == 5){
             position++;
-            searchAutocompleteAction();
+            placesAutocompleteAction();
         }else if(position == 6){
             position++;
             searchAutocompleteAction();
@@ -93,6 +94,19 @@ public class EventsExploreActivity extends AppCompatActivity implements View.OnC
             eTextView.setText("Done!");
             recyclerView.setVisibility(View.GONE);
         }
+    }
+
+    public void placesAutocompleteAction(){
+        recyclerView.setVisibility(View.GONE);
+        List<Users> usersList = new ArrayList<>();
+        usersList.add(new Users("France",""));
+        usersList.add(new Users("India",""));
+        usersList.add(new Users("United Kinngdom",""));
+        AutoCompleteDogsAdapter adapter = new AutoCompleteDogsAdapter(this, usersList);
+        AutoCompleteTextView autocompleteView =
+                (AutoCompleteTextView) findViewById(R.id.autocompleteView);
+        autocompleteView.setVisibility(View.VISIBLE);
+        autocompleteView.setAdapter(adapter);
     }
 
     public void searchAutocompleteAction(){

@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.TextView;
 
+import com.oolatina.android.eventsapp.Activities.EventsExploreActivity;
 import com.oolatina.android.eventsapp.Filters.UsersFilter;
 import com.oolatina.android.eventsapp.Models.Users;
 import com.oolatina.android.eventsapp.R;
@@ -18,11 +19,13 @@ import java.util.List;
 public class AutoCompleteDogsAdapter extends ArrayAdapter<Users> {
 
     private final List<Users> userses;
+    private Context context;
     public List<Users> filteredUserses = new ArrayList<>();
 
     public AutoCompleteDogsAdapter(Context context, List<Users> userses) {
         super(context, 0, userses);
         this.userses = userses;
+        this.context = context;
     }
 
     @Override
@@ -48,6 +51,16 @@ public class AutoCompleteDogsAdapter extends ArrayAdapter<Users> {
         TextView tvUid = (TextView) convertView.findViewById(R.id.teacherUid);
         tvName.setText(users.name);
         tvUid.setText(users.uid);
+        if(users.uid.equals("")){
+            tvUid.setVisibility(View.GONE);
+        }
+
+        tvName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((EventsExploreActivity) context).incrementPosition();
+            }
+        });
 
         return convertView;
     }

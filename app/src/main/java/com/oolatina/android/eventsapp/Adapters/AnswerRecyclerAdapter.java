@@ -1,6 +1,7 @@
 package com.oolatina.android.eventsapp.Adapters;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ public class AnswerRecyclerAdapter extends RecyclerView.Adapter<AnswerRecyclerAd
     private Context context;
     private LayoutInflater inflater;
     private ViewGroup viewGroup;
+    private boolean multiSelectChecker = false;
     private List<String> optionsList = new ArrayList<>();
 
     public AnswerRecyclerAdapter(Context context) {
@@ -76,23 +78,28 @@ public class AnswerRecyclerAdapter extends RecyclerView.Adapter<AnswerRecyclerAd
             optionsList.add("Intermediate");
             optionsList.add("Intermediate/Advanced");
             optionsList.add("Advanced");
+            multiSelectChecker = true;
         } else if (position == Const.TAG_MOMENT_IDENTITY) {
             optionsList.clear();
             optionsList.add("Choose Date");
             optionsList.add("Choose Start Time");
             optionsList.add("Choose End Time");
+            multiSelectChecker = false;
         } else if (position == Const.TAG_PRICE_IDENTITY) {
             optionsList.clear();
             optionsList.add("Amount");
             optionsList.add("Free");
+            multiSelectChecker = false;
         } else if (position == Const.TAG_LOCATION_IDENTITY) {
             optionsList.clear();
             optionsList.add("Address");
             optionsList.add("Room Number");
+            multiSelectChecker = false;
         } else if (position == Const.TAG_TEACHER_IDENTITY) {
             optionsList.clear();
             optionsList.add("Name");
             optionsList.add("Add a teacher");
+            multiSelectChecker = false;
         }
         notifyDataSetChanged();
     }
@@ -108,6 +115,9 @@ public class AnswerRecyclerAdapter extends RecyclerView.Adapter<AnswerRecyclerAd
     @Override
     public void onBindViewHolder(AnswerViewHolder holder, int position) {
         holder.eTextView.setText(optionsList.get(position));
+        if(multiSelectChecker){
+            holder.checkBox.setVisibility(View.VISIBLE);
+        }
         holder.eTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,10 +137,12 @@ public class AnswerRecyclerAdapter extends RecyclerView.Adapter<AnswerRecyclerAd
 
     public class AnswerViewHolder extends RecyclerView.ViewHolder {
         private ETextView eTextView;
+        private AppCompatCheckBox checkBox;
 
         public AnswerViewHolder(View itemView) {
             super(itemView);
             eTextView = (ETextView) itemView.findViewById(R.id.optionsAnswersLayout);
+            checkBox = (AppCompatCheckBox) itemView.findViewById(R.id.checkBox);
         }
     }
 }
